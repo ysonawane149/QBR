@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Question Bank Repository|Registration</title>
+	<!-- <link rel="shortcut icon" type="image" href="bicon.png" /> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo"><img th:src="@{/images/q5.png}" /></div>
+		<nav style="color: white; padding:10px 0px 0px 30px; ">
+			<h2>Create your account</h2>
+		</nav>
+		<hr>
+		<div class="row col-md-10 col-md-offset-3">
+
+			<div class="card card-body">
+				<div class="col-md-8 col-md-offset-3">
+
+					<form th:action="@{/do_register}" method="post" th:object="${user}">
+
+						<div class="form-group">
+
+							<label for="uname"></label> <input type="text" class="form-control" th:value="${user.name}"
+								id="name" name="name" placeholder="Your name">
+							<div th:each="e : ${#fields.errors('name')}" th:text="${e}" class="alert alert-danger col-xs-offset-1 col-xs-10"></div>
+						</div>
+                        <div class="form-group">
+						
+							<label for="uname"></label><br> 
+							<select  th:field="*{module}" name="module" id="module" class="form-control">
+								<option th:value="''"  hidden>Select Module</option>
+								<option value="CoreJava" >Core Java</option>
+								<option value="J2EE" >J2EE</option>
+								<option value="React" >React</option>
+								<option value="SpringBoot" >Spring Boot</option>
+							 </select>
+								<div class="alert alert-danger col-xs-offset-1 col-xs-10"  th:each="e : ${#fields.errors('module')}" th:text="${e}"></div>
+						</div>
+						<div class="form-group">
+							<label for="uname"></label> <input type="email" name="email"
+								class="form-control" required th:value="${user.email}" placeholder="Email Id" >
+								<div class="alert alert-danger col-xs-offset-1 col-xs-10"  th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
+						</div>
+                        <div class="form-group">
+						    
+							<label for="uname"></label> <input type="tel" 
+								class="form-control" maxlength=10 th:value="${user.mobile}" name="mobile"  placeholder="Mobile No" >
+								<div class="alert alert-danger col-xs-offset-1 col-xs-10"  th:each="e : ${#fields.errors('mobile')}" th:text="${e}"></div>
+						</div>
+
+						<div class="form-group">
+							<label for="uname"></label> <input type="password" name="password" class="form-control" placeholder="Password">
+							<div class="alert alert-danger col-xs-offset-1 col-xs-10"
+								th:each="e : ${#fields.errors('password')}" th:text="${e}"></div>
+						</div>
+						<button type="submit" class="btn btn-outline-success">Sign Up</button><br> <hr	>
+						<span>Have an account ?  <a  th:href="@{/signin}">Log In</a></span>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

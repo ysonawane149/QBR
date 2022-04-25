@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Display Quiz</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<style>
+		@media print {
+			.btn {
+				display: none;
+				margin-right: 5px;
+			}
+		}
+
+		.btn {
+			margin-top:2px;
+			margin-right: 4px;
+			color:white;
+			
+		}
+		
+		.bottom{
+			width:1100px;
+			height: 62px;
+			background-color:darkslategray;
+			padding : 9px;
+			border-style:dashed;
+			border-color:aliceblue;
+		}
+		
+
+		.top {
+			width: auto;
+			height: 55px;
+			background-color: teal;
+			padding: 3px;
+		}
+
+		.top h1 {
+			color: white;
+			font-style: italic;
+			font-size: 30px;
+			margin-top: 6px;
+			text-align: center;
+
+		}
+
+		.container a {
+			margin-bottom: 1em;
+		}
+	</style>
+
+<body>
+	<div class="logo"><img th:src="@{/images/q5.png}" /> Question Bank Repository </div>
+	<nav>
+		<input type="checkbox" id="click">
+		<label for="click" class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<ul>
+			<li><a th:href="@{goTOHome}">Home</a></li>
+			<li><a th:href="@{/question/repository}">Question Bank</a></li>
+			<li><a th:href="@{/quiz/showQuizForm}"> Generate New Quiz </a></li>
+			<li><a th:href="@{/quiz/quizFormat/}">View</a></li>
+			<li><a th:href="@{/logout}">Log Out</a></li>
+		</ul>
+	</nav>
+	<div class="top">
+		<h1>Quiz</h1>
+	</div>
+
+
+
+
+	<div class="container">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Question Id</th>
+					<th>Question</th>
+					<th>Option 1</th>
+					<th>Option 2</th>
+					<th>Option 3</th>
+					<th>Option 4</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<tr th:each="question: ${listQuestion}">
+					<td th:text="${question.id}"></td>
+					<td th:text="${question.que}"></td>
+					<td th:text="${question.option_1}"></td>
+					<td th:text="${question.option_2}"></td>
+					<td th:text="${question.option_3}"></td>
+					<td th:text="${question.option_4}"></td>
+
+					<td><a th:href="@{/quiz/UpdateQuizQueForm/{id}(id = ${question.id}) }" class="btn btn-primary" style="background-color:cornflowerblue;">Update</a>
+						<a th:href="@{/quiz/deleteQuizQue/{id}(id= ${question.id}) }" class="btn btn-danger" style="background-color:crimson" >Remove </a></td>
+
+				</tr>
+
+
+			</tbody>
+		</table>
+		<div class="bottom">
+			<a th:href="@{/quiz/export}" class="btn btn-primary" style="background-color:green;">Downlaod</a>
+			<a onClick="window.print();" class="btn btn-primary" style="background-color:green;">Print</a>
+			<a th:href="@{/quiz/removeQuizData}" class="btn btn-primary" style="margin-left:790px; background-color:red;">Remove All</a>
+		</div>
+	</div>
+
+	</div>
+	</div>
+
+
+</body>
+
+</html>

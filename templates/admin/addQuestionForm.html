@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<style>
+input {
+	margin-bottom: 1em;
+}
+</style>
+</head>
+<body style="height:680px;" align="center">
+
+	<div class="container">
+	<div class="logo" style="background-color:#65CCB8;"><img  th:src="@{/images/q3.png}"/></div>
+	<div style="color:#182628;"><h2> Add New Question</h2></div>
+	<div id="main" align="center">
+  <form th:action="@{/question/saveQuestion}" method="post" th:object="${question}" class="form-group">
+   
+   <div class="form-group">
+    <select  th:field="*{module}" class="form-control">
+							<div>
+								<option value=""  hidden>Select module</option>
+								<option value="CoreJava" >Core Java</option>
+								<option value="J2EE" >J2EE</option>
+								<option value="React" >React</option>
+								<option value="Spring Boot" >Spring Boot</option>
+								</div>
+							 </select>          </div>
+	
+    <div class="form-group"><input type="text" placeholder="Question" th:field="*{que}" class="form-control lg-4 " required="required"/></div>
+    <div class="form-group"><input type="text" placeholder="Option 1" th:field="*{option_1}" class="form-control lg-4 " required="required"/></div>
+    <div class="form-group"><input type="text" placeholder="Option 2" th:field="*{option_2}" class="form-control lg-4 " required="required"/></div>
+    <div class="form-group"><input type="text" placeholder="Option 3" th:field="*{option_3}" class="form-control lg-4 " required="required"/></div>
+    <div class="form-group"><input type="text" placeholder="Option 4" th:field="*{option_4}" class="form-control lg-4 " required="required"/></div>
+    <div class="form-group">
+    <select  th:field="*{level}" class="form-control">
+							<div>
+								<option value=""  hidden>Difficulty Level</option>
+								<option value="easy" >Easy</option>
+								<option value="medium" >Medium</option>
+								<option value="hard" >Hard</option>
+								</div>
+							 </select>          </div>
+    <div class="form-group"><input type="text" placeholder="Answer" th:field="*{answer}" class="form-control lg-4 " required="required"/></div>
+	
+	
+	
+	<div class="form-group"><button type="submit" class="btn btn-info">Add Question</button>
+	<a th:href="@{/question/repository}" class="btn btn-primary">Question Bank</a></div>
+	
+		</form>
+	</div>
+		
+	</div>
+	
+	<div class="logo" style="background-color:#65CCB8;"></div>
+	
+
+</body>
+</html>
+
+
+

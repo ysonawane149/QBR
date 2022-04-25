@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Add Student</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		input {
+			margin-bottom: 1em;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+  <h2 class="text-primary">Sort</h2>
+  <form th:action="@{/question/sortByModuleAndLevel}" method="post" th:object="${question}" class="col-lg-4">
+    <input type="text" placeholder="Module" th:field="*{module}" class="form-control mb-4 " required="required"/>
+    <input type="text" placeholder="Level" th:field="*{level}" class="form-control mb-4 " required="required"/>
+    
+	<button type="submit" class="btn btn-info">Sort</button>
+	<a th:href="@{/}" class="btn btn-primary">Go Back to Question Bank</a>
+		</form>
+		
+	</div>
+
+
+<!--
+<div class="container">
+  <h2 class="text-primary">Sort</h2>
+   <form th:action="@{/sortByModuleAndLevel}" method="post" th:object="${question}" class="col-lg-4">
+   
+   
+   <select th:field="*{gender}">
+    <option th:value="'M'" th:text="Male"></option>
+    <option th:value="'F'" th:text="Female"></option>
+</select>
+
+	<br><br>
+    <button type="submit" class="btn btn-info">Sort</button>
+	<a th:href="@{/repository}" class="btn btn-primary">Back</a>
+</form>
+</div>
+-->
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Question Bank Repository</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/HomePage.css}" />
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+<style>
+footer{
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 5px;
+    color: #fff;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+    padding-left: 0px;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 10px 0;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="logo"><img  th:src="@{/images/q5.png}"/> Question Bank Repository </div>
+<nav>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a th:href="@{/}" class ="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a th:href="@{/admin/contact}" >Contact</a></li>
+            <li><a th:href="@{/admin/directory}" >Teacher's Info</a></li>
+            <li><a th:href="@{/admin/module}" >Module</a></li>
+            <li><a th:href="@{/question/repository}" >Question Bank</a></li>
+            <li><a th:href="@{/quiz/showQuizData}">Quiz Section</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    <div style="padding:50px;" align="center">
+    <div class="fancy" ><h1 style="padding: 20px;    font-family: emoji;">`Welcome To QBR</h1>
+    </div>
+    </div>
+    <div class="container"  style=" background-color: #65CCB8;">
+            <video autoplay muted loop id="video1">
+            <source th:src="@{/mp4/abc.mp4}" type="video/mp4">
+            </video> 
+        </div>
+       
+        <div class="container" id="about">
+        <br><br><br>
+        <hr>
+        <h1>About Us</h1>
+              <span class="text">
+                This project introduces a web-based automated question bank generation system for teachers.
+                By using this app teachers can make question banks within few minutes.
+                add, edit, delete questions and answers.Sort questions by module name and
+                difficulty level.Create a question bank.
+                Admin can approve or reject teacher's registration. 
+                Also, the admin can add or remove faculty along with complete access to the repository.
+              </span>
+            <hr>  
+              </div>
+               
+    <div class="container" id="footer">
+    <footer>
+        <div class="footer-content">
+          <h3>Question Bank Repository</h3>
+         
+          <ul class="socials">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-linkedin-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            copyright &copy;2021 Question Bank Repository. 
+          </p>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>

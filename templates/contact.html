@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<title>Question Bank Repository|Contact</title>
+<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<style>
+body {
+	background: no-repeat center center;
+	background-size: 1400px 700px;
+	background-position: 30%;
+	background-attachment: fixed;
+}
+
+.text {
+	font-family: raleway;
+	font-size: 30px;
+	position: absolute center;
+	text-align: center;
+	padding-left: 0%;
+	color: #000;
+	margin-top: 43px;
+}
+
+.text1 {
+	font-family: raleway;
+	font-size: 15px;
+	text-align: center;
+	margin-top: -20px;
+	color: #000;
+}
+
+.image {
+	text-align: center;
+	width: 200px;
+	/* Container's dimensions */
+	height: 200px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px #eee;
+	background: center center no-repeat;
+	background-size: cover;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: -30px;
+	align-content: center;
+	margin-bottom: -30px;
+}
+
+.trick {
+	display: inline-block;
+	vertical-align: middle;
+	height: 150px;
+}
+
+.image:hover {
+	box-shadow: 0px 5px 20px .9px #3F3F3F;
+}
+
+.image:hover {
+	-webkit-transform: scale(1.12);
+	transform: scale(1.12);
+	-webkit-transition: 1.6s ease-in-out;
+	transition: 1.6s ease-in-out;
+}
+
+.trick:hover img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+#overlay {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	padding: 0 0 0 0;
+	opacity: 1.0;
+	-webkit-transition: opacity 2.25s ease;
+	-moz-transition: opacity 10.25s ease;
+}
+
+#box:hover #overlay {
+	opacity: 1;
+}
+
+.img {
+	margin-top: 50px;
+}
+
+.panel-group {
+	width: 350px;
+	margin: auto;
+	/*margin:50px 400px 50px 400px;*/
+	max-width: 100%;
+}
+
+.panel-heading {
+	background-color: transparent !important;
+}
+
+.title {
+	text-align: center;
+	background-color: transparent;
+	color: #000;
+	font-family: lato;
+	font-weight: 300;
+	font-size: 15px;
+	max-width: 100%;
+}
+
+#accordion {
+	background-color: transparent;
+	max-width: 100%;
+	margin-bottom: 200px;
+}
+nav{
+  color:#fff;
+  height:70px;
+  width:100%;
+  top: 0;
+  z-index: 1;
+  box-shadow: rgb(0 0 0 / 27%) 0px 2px 8px 0px;
+  position: sticky;
+  /* background: linear-gradient(45deg,#182628,#3B945E); */
+  background-color:#65CCB8; 
+  align-items: center;
+  justify-content:space-between;
+  padding:0px 0px 0px 30px;
+  flex-wrap: wrap;
+}
+.logo{
+  color:#fff;
+  height:100px;
+  padding: 20px 0px 20px 0px;
+  font-size:25px;
+  font-weight:600;
+  text-align:center;
+  background-color:#182628;
+}
+nav ul{
+  display:flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+nav ul li{
+  margin:0 5px;
+}
+nav ul li a{
+  color:#fff;
+  text-decoration:none;
+  font-size: 18px;
+  font-weight: 500;
+  padding:8px 15px;
+  border-radius: 5px;
+  letter-spacing:1px;
+  border-bottom:1.5px solid transparent;
+  transition:all 0.05s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  border-color:#fff;
+  color:#fff;
+  text-decoration:none;
+}
+nav .menu-btn i{
+  color:#fff;
+  font-size:22px;
+  cursor: pointer;
+  display:none;
+}
+footer{
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 5px;
+    color: #fff;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+    padding-left: 0px;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+</style>
+<body>
+	<div class="logo"><img  th:src="@{/images/q5.png}"> Question Bank Repository </div>
+<nav>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <!-- <li><a href="#" class ="active">Home</a></li>
+            <li><a href="#">About</a></li> -->
+            <li><a th:href="@{/}" >Home</a></li>
+            <!-- <li><a href="#" >Module</a></li>
+            <li><a th:href="@{//}" >Question Bank</a></li>
+            <li><a th:href="@{addQuestionForm}">Add Question</a></li>
+            <li><a th:href="@{logout}">Logout</a></li> -->
+        </ul>
+    </nav>
+    <div id="div" style="height: auto;">
+    <div>
+    </div>
+</div>
+
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-sm">
+				<div class="box">
+					<div id="overlay">
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" src="" />
+							</div>
+						</div>
+						<div class="text">Mrs.Suman Ninoriya</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							sumanninoriya@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-9860916875
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<div class="box">
+					<div id="overlay">
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" th:src="@{/images/Anuja.png}" />
+							</div>
+						</div>
+						<div class="text">Miss.Anuja Padwal</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							anujapadwal99@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-7720807277
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm">
+				<div class="box">
+					<div id="overlay">
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" th:src="@{/images/Akshay.png}" />
+							</div>
+						</div>
+						<div class="text">Mr.Akshay Bule</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							akshay99993@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-8055954560
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm">
+				<div class="box">
+					<div id="overlay">
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" th:src="@{/images/Tanvi.png}" />
+							</div>
+						</div>
+						<div class="text">Miss.Tanvi Pawar</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							tanvipawar0203@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-9833141179
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <!-- new row -->
+    <div class="container" >
+		<div class="row" style="justify-content: center;">
+			<div class="col-sm">
+				<div class="box">
+					<div id="overlay">
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" th:src="@{/images/Akshaychavan.png}" />
+							</div>
+						</div>
+						<div class="text">Mr.Akshay Chavan</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							akshaysinhchavan@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-8087240950
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm" >
+				<div class="box">
+					<div id="overlay" >
+						<div class="image">
+							<div class="trick">
+								<img width="200px" height="200px" th:src="@{/images/Tushar.png}" />
+							</div>
+						</div>
+						<div class="text">Mr.Tushar Patil</div>
+						<div class="text1">
+							<br> <span class="glyphicon glyphicon-envelope"></span>
+							tpatil788@gmail.com<br> <span
+								class="glyphicon glyphicon-phone"></span> +91-7030460927
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+    </div>
+   
+    <!-- end row -->
+   
+</body>
+<br><br><br>
+<footer>
+        <div class="footer-content">
+          <h3>Question Bank Repository</h3>
+         
+          <ul class="socials">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-linkedin-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            copyright &copy;2021 Question Bank Repository. 
+          </p>
+        </div>
+      </footer>
+  
+</html>
+

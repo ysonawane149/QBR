@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Generate Quiz</title>
+	<link rel="shortcut icon" type="image" href="bicon.png" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<style>
+		.input {
+			margin-bottom: 1em;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="container">
+		<div class="logo"><img th:src="@{/images/q5.png}" /></div>
+		<nav style="color: white; padding:10px 0px 0px 30px; ">
+			<h2>Generate Quiz </h2>
+		</nav>
+		<hr>  
+<!--		
+		<div class="row col-md-8 col-md-offset-3">
+
+			<div class="card card-body">
+				<div class="col-md-8 col-md-offset-3">
+
+					<form th:action="@{/generateQuiz}" method="post" th:object="${quiz}" class="col-lg-4">
+						<input type="text" placeholder="Number of question" th:field="*{quantity}"
+							class="form-control mb-4 " required="required" />
+
+
+						<button type="submit" class="btn btn-info">Submit</button>
+						<a th:href="@{/repository}" class="btn btn-primary">Back</a>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+-->
+	<!-- ------------------------------------------------------------------------------------ -->
+
+	<div class="container">
+		<h3 class="text-primary">Enter number of questions </h3>
+		<form th:action="@{/quiz/generateQuiz}" method="post" th:object="${quiz}" class="col-lg-4">
+			<input type="text" placeholder="Number of question" th:field="*{quantity}" class="form-control mb-4 "
+				required="required" />
+
+
+			<button type="submit" class="btn btn-info">Submit</button>
+			<a th:href="@{/question/repository}" class="btn btn-primary">Back</a>
+		</form>
+
+	</div>
+
+
+</body>
+
+</html>

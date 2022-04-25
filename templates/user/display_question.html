@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<style>
+		@media print {
+			.btn {
+				display: none;
+			}
+		}
+
+		.top {
+			width: auto;
+			height: 55px;
+			background-color: darkgreen;
+			padding: 3px;
+		}
+
+		.top h1 {
+			color: aliceblue;
+
+			font-style: italic;
+			font-size: 25px;
+			text-align: center;
+			margin-top: 6px;
+		}
+
+		.dropdown {
+			margin-top: 3px;
+			margin-bottom: 1em;
+			margin-left:20px;
+		}
+
+		.container a {
+			margin-bottom: 1em;
+		}
+
+		.body-nav {
+			margin-bottom: 0;
+		}
+		.bottom{
+			width:1100px;
+			height: 62px;
+			background-color:darkslategray;
+			padding : 9px;
+			border-style:dashed;
+			border-color:aliceblue;
+		}
+		.searchBox{
+			margin-left:0px;
+		}
+		.searchBtn{
+			background-color:darkslategray;
+		}
+		
+	</style>
+	<title>Question Bank</title>
+</head>
+
+<body>
+
+
+
+	<div class="logo"><img th:src="@{/images/q5.png}" /> Question Bank Repository </div>
+	<nav>
+		<input type="checkbox" id="click">
+		<label for="click" class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<ul>
+			<li><a th:href="@{/question/goToHome}"> Home </a></li>
+			<li><a th:href="@{/question/repository}"> All Question </a></li>
+			<li><a th:href="@{/question/addQuestionForm}"> Add Question </a></li>
+			<li><a th:href="@{/question/showSortingForm}"> Sort by Module And Level </a></li>
+			<li><a th:href="@{/quiz/showQuizData}"> Quiz Section </a></li>
+			<form th:action="@{/question/searchQuestion}" method="GET">
+				<span class="searchBox">
+					<label for="subject"></label>
+					<input type="text" name="ques" value="" id="ques">
+					<input type="submit" value="Search" class="searchBtn">
+				</span>
+			</form>
+		</ul>
+
+	</nav>
+
+	<div class="top">
+
+		<h1>Question Bank</h1>
+	</div>
+
+	<div class="container">
+
+      <div style="display:flex;">
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+				data-bs-toggle="dropdown" aria-expanded="false">
+				Sort by Module
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<li><a class="dropdown-item" th:href="@{sortByModule/{module}(module = ${'Java'}) }">Java</a></li>
+				<li><a class="dropdown-item" th:href="@{sortByModule/{module}(module = ${'wpt'}) }">WPT</a></li>
+				<li><a class="dropdown-item" th:href="@{sortByModule/{module}(module = ${'spring'}) }">Spring</a></li>
+				<li><a class="dropdown-item" th:href="@{sortByModule/{module}(module = ${'react'}) }">React</a></li>
+			</ul>
+		</div>
+
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+				data-bs-toggle="dropdown" aria-expanded="false">
+				Sort by level
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<li><a class="dropdown-item" th:href="@{/question/sortByLevel/{level}(level = ${'Easy'}) }">Easy</a></li>
+				<li><a class="dropdown-item" th:href="@{/question/sortByLevel/{level}(level = ${'Medium'}) }">Medium</a></li>
+				<li><a class="dropdown-item" th:href="@{/question/sortByLevel/{level}(level = ${'Hard'}) }">Hard</a></li>
+			</ul>
+      </div>
+      </div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Question Id</th>
+						<th>Module</th>
+						<th>Question</th>
+						<th>Option 1</th>
+						<th>Option 2</th>
+						<th>Option 3</th>
+						<th>Option 4</th>
+						<th>Difficulty</th>
+						<th>Answer</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="question: ${listQuestion}">
+						<td th:text="${question.id}"></td>
+						<td th:text="${question.module}"></td>
+						<td th:text="${question.que}">
+						</td>
+						<td th:text="${question.option_1}"></td>
+						<td th:text="${question.option_2}"></td>
+						<td th:text="${question.option_3}"></td>
+						<td th:text="${question.option_4}"></td>
+						<td th:text="${question.level}"></td>
+						<td th:text="${question.answer}"></td>
+						<td><a th:href="@{/question/showFormforUpdate/{id}(id = ${question.id}) }"
+								class="btn btn-primary" style="background-color:darkslategray;">Update</a>
+							<a th:href="@{/question/deleteQuestion/{id}(id= ${question.id}) }" class="btn btn-danger" style="background-color:crimson">Delete
+							</a>
+							<a th:href="@{/quiz/addToQuiz/{id}(id= ${question.id}) }" class="btn btn-primary" style="background-color:green;">+ Quiz
+							</a></td>
+
+					</tr>
+
+
+				</tbody>
+			</table>
+			<div class="bottom">
+			<a onClick="window.print();" class="btn btn-primary" style="background-color:green;">Print</a>
+		</div>
+	
+		</div>
+</body>
+
+</html>

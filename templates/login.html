@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Log In</title>
+
+<link rel="shortcut icon" type="image" href="bicon.png" /> 
+<script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+<link rel="shortcut icon" type="image" th:href="@{/images/q4.png}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<!-- /////////////////////////////////////////////Modal////////////////////////////////////////////////// -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
+</head>
+<body>
+<div class="container">
+<div class="logo"><img  th:src="@{/images/q5.png}"/></div>
+	<nav style="color: white; padding:10px 0px 0px 30px; " >
+		<h2 >Log In </h2>
+	</nav>
+	<div>
+     <div class="alert bg-warning w-100 " align="center" th:if="${param.status1}"><i class="fa fa-exclamation-triangle" aria-hidden="true" th:text="${param.status1}"></i></div>
+     <div class="alert w-100 " style="background-color:#ff2014" align="center" th:if="${param.status2}"><i class="fa fa-exclamation-triangle" aria-hidden="true" th:text="${param.status2}"></i></div>
+        </div>
+	<hr>
+		<div class="row col-md-8 col-md-offset-3">	
+			
+			<div class="card card-body">
+				<div class="col-md-8 col-md-offset-3">
+
+					<form th:action="@{/dologin}" action="#" th:object="${teacher}" method="post">
+
+						<div class="form-group">
+							<label for="uname"></label> <input type="text" class="form-control" name="username"
+								placeholder="Email Id">
+						</div>
+
+
+						<div class="form-group">
+							<label for="uname"></label> <input type="password" class="form-control"
+								name="password" placeholder="Password">
+						</div>
+
+						<button type="submit" class="btn btn-outline-success">Log In</button><br> <hr	>
+						<span> Don't have an account ?  <a th:href="@{/signup}" >Sign Up</a></span>
+                     
+					</form>
+					<div th:if="${param.error}" class="alert alert-danger col-xs-offset-1 col-xs-10">
+						
+						Invalid username or password.
+						</div>
+						
+						
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
